@@ -3,18 +3,22 @@
  function stringGenerator(str){
     let main_arr=str.match(/.{1,2}/g)
     let large_str=``
-    let index=0
-    for (let main_index = 0; index < main_arr.length; index+1) {
-        const ele=main_arr[main_index]
-        index=main_arr.indexOf(ele)
-        if(index!=main_arr.length-1){
-            let nex_ele=main_arr[index+1]
+  
+    for (let main_index = 0; main_index < main_arr.length-1; main_index++) {
+        let ele=main_arr[main_index]
+        // last_index=main_arr.indexOf(ele)
+
+            let nex_ele=main_arr[main_index+1]
             let nex_arr=nex_ele.split('')
+
             if(nex_arr.length==1){
+                console.log("ele",ele)
+                console.log("nex_ele",nex_ele)
+    
                 let arr=ele.split('')
                 let char=arr[0]
                 console.log("save")
-                let count=Number(`${arr[1]}${arr[0]}`)
+                let count=Number(`${arr[1]}${nex_arr[0]}`)
                 for (let i = 0; i < count; i++) {
                     large_str+=`${char}`
                 }
@@ -25,8 +29,8 @@
                 for (let i = 0; i < count; i++) {
                     large_str+=`${char}`
                 }
-            }    
-        }
+            }  
+              
     }
     console.log("large_str",large_str)
 
